@@ -1,6 +1,6 @@
 ---
 title: "Assignment 1: Introduction"
-author: "Student Name"
+author: "Isabella Yang"
 output: pdf_document
 ---
 
@@ -22,22 +22,22 @@ Enter answers to the questions just below the >Answer: prompt.
 
 1. What are your previous experiences with data analytics, R, and Git? Include both formal and informal training.
 
-> Answer: 
+> Answer: I had one semester of experience on R but not much about Git. I had a class that's on marine megafauna and we used R as a tool to do analysis of marine megafauna researches, but those are just practices. 
 
 2. Are there any components of the course about which you feel confident?
 
-> Answer: 
+> Answer: I'm good at following instructions. 
 
 3. Are there any components of the course about which you feel apprehensive?
 
-> Answer: 
+> Answer: When the content gets tedious and complicated I might be a little stressed. As long as I can ask questions anytime I should be fine.
 
 
 ## 2) GitHub
 
 Provide a link below to your forked course repository in GitHub. Make sure you have pulled all recent changes from the course repository and that you have updated your course README file, committed those changes, and pushed them to your GitHub account. 
 
-> Answer: 
+> Answer: https://github.com/isabellay02/EDE_Fall2025
 
 ## 3) Knitting
 When you have completed this document, click the `knit` button.This should produce a PDF copy of your markdown document. Submit this PDF to Canvas 
