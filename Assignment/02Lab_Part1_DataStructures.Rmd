@@ -3,6 +3,8 @@ title: "Lab 2 - Data Structures in R"
 subtitle: "Environmental Data Analytics"
 author: "John Fay & Luana Lima"
 date: "Fall 2025"
+editor_options: 
+  chunk_output_type: inline
 ---
 
 ## Objective
@@ -83,17 +85,20 @@ Find a 5-day forecast of temperatures (Fahrenheit) for Durham, North Carolina. C
 ```{r Vector Exercise}
 
 #Assign to the variable 'temps_F' a vector of high temperatures in F
-
+tempt_F <- c(80, 81, 81, 83, 83)
+tempt_F
 
 #What is the average of these temperatures 
-
+average_tempt <- mean(tempt_F)
+average_tempt
 
 #Compute the difference between each temperature and the average calculated above
-
+diff_tempt <- abs(c(average_tempt - tempt_F))
+diff_tempt
 
 #Subtract 32 and multiply by 5/9ths to create a vector in Celsius
-
-
+tempt_C <- (tempt_F - 32)*5/9
+tempt_C
 ```
 
 ## Matrices
@@ -163,9 +168,9 @@ matrix4['R2','C1']
 ### Exercise 1b: Matrices
 Compute the mean of column "C2" in matrix4. (Should be 14.5)
 ```{r Matrix Exercise}
-
+meanC2 <- mean(c(matrix4[ ,2]))
+meanC2
 ```
-
 
 
 ## Lists
@@ -210,9 +215,9 @@ list1[[4]] = 44
 ```{r Creating data frames}
 # Data Frames ----
 #Create three vectors of equal length
-d <- c(1, 2, 3, 4) # What type of vector?
+d <- c(1, 2, 3, 4) # What type of vector? Numeric
 e <- c("red", "white", "red", NA) # What type of vector?
-f <- c(TRUE, TRUE, TRUE, FALSE) # What type of vector?
+f <- c(TRUE, TRUE, TRUE, FALSE) # What type of vector? Logical
 
 #Combine the vectors into a dataframe
 dataframe1 <- data.frame(d,e,f) 
