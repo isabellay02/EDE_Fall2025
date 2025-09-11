@@ -31,7 +31,7 @@ Note that it has 2 columns and 50 rows.
 Suppose you want just the column speed. How would you access that data?
 
 ```{r}
-cars$speed
+cars$speed #extract speed column
 ```
 
 How would you store it on another object?
