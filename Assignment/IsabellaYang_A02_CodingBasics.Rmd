@@ -106,7 +106,8 @@ pass_fail_ifelse(52.5)
 
 
 #13a. Run the first function with the vector of test scores
-pass_fail_if(test_scores) # Doesn't work properly "Error in if (x > 50) { : the condition has length > 1"
+#pass_fail_if(test_scores) 
+# Doesn't work properly "Error in if (x > 50) { : the condition has length > 1"
 
 
 #13b. Run the second function with the vector of test scores
