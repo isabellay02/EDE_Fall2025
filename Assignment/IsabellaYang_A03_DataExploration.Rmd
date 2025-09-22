@@ -1,6 +1,6 @@
 ---
 title: "Assignment 3: Data Exploration"
-author: "Student Name"
+author: "Isabella Yang"
 date: "Fall 2025"
 output: pdf_document
 geometry: margin=2.54cm
@@ -33,8 +33,22 @@ This exercise accompanies the lessons in Environmental Data Analytics on Data Ex
 1.  Load necessary packages (tidyverse, lubridate, here), check your current working directory and upload two datasets: the ECOTOX neonicotinoid dataset (ECOTOX_Neonicotinoids_Insects_raw.csv) and the Niwot Ridge NEON dataset for litter and woody debris (NEON_NIWO_Litter_massdata_2018-08_raw.csv). Name these datasets "Neonics" and "Litter", respectively. Be sure to include the subcommand to read strings in as factors.
 
 ```{r setup,  message = FALSE}
+library(tidyverse)
+library(lubridate)
+library(here)
 
+getwd()
+here()
 
+Neonics <- read.csv(
+  file = here("Data/Raw/ECOTOX_Neonicotinoids_Insects_raw.csv"),
+  stringsAsFactors = TRUE
+)
+
+Litter <- read.csv(
+  file = here("Data/Raw/NIWO_Litter/NEON_NIWO_Litter_massdata_2018-08_raw.csv"),
+  stringsAsFactors = TRUE
+)
 ```
 
 ## Learn about your system
