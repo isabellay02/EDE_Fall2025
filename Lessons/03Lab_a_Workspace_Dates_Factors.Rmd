@@ -95,7 +95,7 @@ NTL_data <- read.csv(
 # 2. Read in all CSV files starting with "EPAair_O3" into a single dataframe
 library(tidyverse);library(here)
 folder <- here("Data", "Raw")
-files <- dir(EPA_folder, pattern = "EPAair_O3", full.names = TRUE)
+files <- dir(folder, pattern = "EPAair_O3", full.names = TRUE)
 
 EPA_data <- files %>%
   map(read.csv) %>%
