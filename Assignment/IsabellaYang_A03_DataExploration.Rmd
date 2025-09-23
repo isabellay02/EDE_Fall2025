@@ -2,7 +2,9 @@
 title: "Assignment 3: Data Exploration"
 author: "Isabella Yang"
 date: "Fall 2025"
-output: pdf_document
+output:
+  pdf_document:
+    latex_engine: xelatex 
 geometry: margin=2.54cm
 editor_options: 
   chunk_output_type: console
@@ -49,10 +51,6 @@ Litter <- read.csv(
   file = here("Data/Raw/NIWO_Litter/NEON_NIWO_Litter_massdata_2018-08_raw.csv"),
   stringsAsFactors = TRUE
 )
-
-# Check if the files are read
-Neonics
-Litter
 ```
 
 ## Learn about your system
@@ -68,9 +66,12 @@ Litter
 4.  How is litter and woody debris sampled as part of the NEON network? Read the NEON_Litterfall_UserGuide.pdf document to learn more. List three pieces of salient information about the sampling methods here:
 
 > Answer: 
- 1. NEON samples litter and woody debris in tower plots by placing 1–4 pairs of elevated and ground traps per plot, with trap placement either random (if woody cover >50%) or targeted under vegetation (if cover is sparse), while following spacing rules to avoid roads, buildings, and streams.
- 2. The finest scale of NEON litterfall sampling is a single trap, each identified by a unique **trapID**. Traps are organized hierarchically: **trapID** → **subplotID** → **plotID** → **siteID** → **domainID**. Basic spatial data (latitude, longitude, elevation of plot centroids) are provided with uncertainty estimates. For greater precision, users can either use the geoNEON R package or follow a stepwise process using NEON’s API and a clip cell lookup table to calculate exact trap positions.
- 3. NEON ensures data quality through built-in validation rules during entry which automatically process before publication, and continuous revision while data remain provisional. Errors and updates are tracked in change logs, and a quality flag system marks known issues—currently only “legacyData” for older paper-based records.
+
+> 1. NEON samples litter and woody debris in tower plots by placing 1–4 pairs of elevated and ground traps per plot, with trap placement either random (if woody cover >50%) or targeted under vegetation (if cover is sparse), while following spacing rules to avoid roads, buildings, and streams.
+ 
+> 2. The finest scale of NEON litterfall sampling is a single trap, each identified by a unique **trapID**. Traps are organized hierarchically: **trapID** → **subplotID** → **plotID** → **siteID** → **domainID**. Basic spatial data (latitude, longitude, elevation of plot centroids) are provided with uncertainty estimates. For greater precision, users can either use the geoNEON R package or follow a stepwise process using NEON’s API and a clip cell lookup table to calculate exact trap positions.
+
+> 3. NEON ensures data quality through built-in validation rules during entry which automatically process before publication, and continuous revision while data remain provisional. Errors and updates are tracked in change logs, and a quality flag system marks known issues—currently only “legacyData” for older paper-based records.
 
 ## Obtain basic summaries of your data (Neonics)
 
@@ -94,8 +95,8 @@ sort(table(Neonics$Effect), decreasing = TRUE)
 7.  Using the `summary` function, determine the six most commonly studied species in the dataset (common name). What do these species have in common, and why might they be of interest over other insects? Feel free to do a brief internet search for more information if needed.[TIP: Explore the help on the `summary()` function, in particular the `maxsum` argument...]
 
 ```{r Q7}
-summary(Neonics$Species.Common.Name, maxsum = 6) # this is showing the "(other)" column which is not the one I want to include.
-head(sort(table(Neonics$Species.Common.Name), decreasing = TRUE), 6) # this is showing the first six commonly studied species in the dataset.
+summary(Neonics$Species.Common.Name, maxsum = 6) # showing the "(other)" column 
+head(sort(table(Neonics$Species.Common.Name), decreasing = TRUE), 6) # the first 6 common name
 ```
 
 > Answer: The six most commonly studied species in the Neonics dataset are **Honey Bee, Parasitic Wasp, Buff-tailed Bumblebee, Carniolan Honey Bee, Bumble Bee, and Italian Honeybee**. All of these are beneficial insects. While the Parasitic Wasp is not a pollinator, it plays an important role in natural pest control by preying on harmful insects. The honey bees and bumblebees, on the other hand, are vital pollinators that support both agriculture and natural ecosystems. Studying how neonicotinoids affect these species is essential for understanding risks to biodiversity, food security, and ecosystem health, as well as for developing strategies to reduce pesticide impacts.
