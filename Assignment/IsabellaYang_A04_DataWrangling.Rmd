@@ -76,27 +76,14 @@ dim(EPAair_04)
 
 ```{r questions 3 thru 4}
 #3 Convert Date column to proper date format
-library(lubridate)
-
-fix_date <- function(x) {
-  # x can be factor or character; return Date
-  z <- as.character(x)
-  # try multiple orders; handles with/without time
-  as.Date(parse_date_time(z,
-                          orders = c("mdy","ymd","mdy HMS","ymd HMS","mdy HM","ymd HM")),
-          tz = "UTC")
-}
-
-# Re-read the four files (so we undo the NA overwrite) and parse Date
-EPAair_01 <- read.csv(here::here("Data","Raw","EPAair_O3_NC2018_raw.csv"),  stringsAsFactors = TRUE)
-EPAair_02 <- read.csv(here::here("Data","Raw","EPAair_O3_NC2019_raw.csv"),  stringsAsFactors = TRUE)
-EPAair_03 <- read.csv(here::here("Data","Raw","EPAair_PM25_NC2018_raw.csv"), stringsAsFactors = TRUE)
-EPAair_04 <- read.csv(here::here("Data","Raw","EPAair_PM25_NC2019_raw.csv"), stringsAsFactors = TRUE)
-
-EPAair_01$Date <- fix_date(EPAair_01$Date)
-EPAair_02$Date <- fix_date(EPAair_02$Date)
-EPAair_03$Date <- fix_date(EPAair_03$Date)
-EPAair_04$Date <- fix_date(EPAair_04$Date)
+EPAair_01$Date <- as.Date(parse_date_time(EPAair_01$Date,
+                                          orders = c("mdy","ymd","dmy")))
+EPAair_02$Date <- as.Date(parse_date_time(EPAair_02$Date,
+                                          orders = c("mdy","ymd","dmy")))
+EPAair_03$Date <- as.Date(parse_date_time(EPAair_03$Date,
+                                          orders = c("mdy","ymd","dmy")))
+EPAair_04$Date <- as.Date(parse_date_time(EPAair_04$Date,
+                                          orders = c("mdy","ymd","dmy")))
 
 #4 Keep only the specified columns
 EPAair_01   <- EPAair_01   %>% 
