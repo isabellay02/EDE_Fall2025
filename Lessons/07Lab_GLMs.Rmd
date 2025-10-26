@@ -48,7 +48,15 @@ Create three plots, each with appropriately formatted axes and legends. Choose a
 
 ```{r}
 #Exercise 1:
+library(ggplot2)
 
+density_plot <- ggplot(EPAair, aes(x = Ozone, fill = as.factor(Year)))+
+  geom_density(alpha = 0.5) +
+  scale_fill_manual(values = c("darkgreen", "darkblue")) +
+  labs(x = "Ozone AQI Value",
+       y = "Density",
+       fill = "")
+print(density_plot)
 
 ```
 
