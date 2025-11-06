@@ -518,7 +518,13 @@ mapView(counties_sf[resultMask,])
 the_site_counties <- theSite_sfc_transformed %>% 
   st_buffer(.,dist=30000)
 
+# Create a boolean mask
+resultMask2 <- st_intersects(counties_sf_utm, 
+                             theSite_sfc_transformed,
+                             sparse = FALSE)
+selCounties2 <- counties_sf_utm[resultMask2, ]
 
+mapView(selCounties2) + mapview((theSite_sfc_transformed))
                             
 ```
 
