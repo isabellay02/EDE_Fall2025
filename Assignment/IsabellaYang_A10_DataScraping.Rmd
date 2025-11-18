@@ -189,10 +189,34 @@ ggplot(df_cary_2020, aes(x = Date, y = Maximum_Day_Use)) +
   theme_minimal()
 
 glimpse(df_cary_2020)
+
+#Combine Durham and Cary in 2020
+df_cary_durham_2020 <- bind_rows(df_durham_2020, df_cary_2020)
+
+#Side by side compare
+ggplot(df_cary_durham_2020, aes(x = Date, y = Maximum_Day_Use)) +
+  geom_line() +
+  facet_wrap(~ Water_System, ncol = 2, scales = "free_y") +
+  labs(
+    title = "Maximum Daily Withdrawals: Durham vs Cary",
+    x = "Month",
+    y = "Maximum Day Use (MGD)") +
+  theme_minimal()
+
+# Comparing in one plot
+ggplot(df_cary_durham_2020, aes(x = Date, y = Maximum_Day_Use, color = Water_System)) +
+  geom_line() +
+  labs(
+    title = "Maximum Daily Withdrawals: Durham vs Cary",
+    x = "Month",
+    y = "Maximum Day Use (MGD)",
+    color = "Water System") +
+  theme_minimal()
+
 ```
 
 
-9. Use the code & function you created above to plot Cary's max daily withdrawal by months for the years 2018 thru 2023.Add a smoothed line to the plot (method = 'loess').
+9. Use the code & function you created above to plot Cary's max daily withdrawal by months for the years 2018 thru 2023. Add a smoothed line to the plot (method = 'loess').
 
 > TIP: See Section 3.2 in the "10_Data_Scraping.Rmd" where we apply "map2()" to iteratively run a function over two inputs. Pipe the output of the map2() function to `bind_rows()` to combine the dataframes into a single one, and use that to construct your plot.
 
